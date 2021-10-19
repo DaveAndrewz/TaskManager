@@ -23,7 +23,8 @@ const tasks = [
 // For displaying tasks to the user
 let showTasks = ``;
 
-
+// For storing the value of a new task
+let newTask;
 
 
 
@@ -37,7 +38,7 @@ let userInput = prompt(menu);
 while (userInput !== `CLOSE`){
     
     // Checks if user entered TASKS
-    if (userInput === 'TASKS'){
+    if (userInput === `TASKS`){
 
         // The for of loop is used here to concatenate each task (AKA Item) in the tasks array to the showTasks string variable.
         for (task of tasks){
@@ -52,7 +53,16 @@ while (userInput !== `CLOSE`){
 
         // Sets the value of the showTasks variable back to an empty string so it won't repeat when you look at the tasks a second time
         showTasks = ``;
+    }
 
+    // Checks if user entered NEW
+    if (userInput === `NEW`){
+
+        // Prompts the user to enter a new task and stores their response
+        newTask = prompt(`Please enter a new task to get done:`);
+
+        // Alerts the user that their new task has been added
+        alert(`"${newTask}" has been added!`);
 
     }
 
