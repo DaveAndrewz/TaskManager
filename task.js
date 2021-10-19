@@ -37,12 +37,13 @@ let removed;
 
 
 // Displays the menu for the user to select an option. Also sets the users response to the userInput variable
-let userInput = prompt(menu);
+// Using the "toUpperCase" method to convert the user's response to UPPERCASE
+let userInput = prompt(menu).toUpperCase();
 
-// Loops and continues to display the menu until the user ends/closes the Task Manager (AKA Until the user enters `CLOSE`)
+// Loops and continues to display the menu until the user ends/closes the Task Manager (AKA Until the user enters `CLOSE` (UPPERCASE or lowercase))
 while (userInput !== `CLOSE`){
     
-    // Checks if user entered TASKS
+    // Checks if user entered TASKS (UPPERCASE or lowercase)
     if (userInput === `TASKS`){
 
         // The for of loop is used here to concatenate each task (AKA Item) in the tasks array to the showTasks string variable.
@@ -60,7 +61,7 @@ while (userInput !== `CLOSE`){
         showTasks = ``;
     }
 
-    // Checks if user entered NEW
+    // Checks if user entered NEW (UPPERCASE or lowercase)
     if (userInput === `NEW`){
 
         // Prompts the user to enter a new task and stores their response
@@ -73,7 +74,7 @@ while (userInput !== `CLOSE`){
         tasks.push(newTask);
     }
 
-    // Checks if user entered REMOVE
+    // Checks if user entered REMOVE (UPPERCASE or lowercase)
     if (userInput === `REMOVE`){
 
         // Concatenates each task/item in the tasks array to the showTasks string variable. Also, sets/displays a number for each task
@@ -89,7 +90,7 @@ while (userInput !== `CLOSE`){
         // Just like with ParseInt, JavaScript will attempt to convert a string into a number when you try to subtract from it. So ParseInt is NOT necessary here.
         num = prompt(`Please enter a number to remove:\n\n${showTasks}`) - 1;
 
-        // Removes the task/item selected by the user from the tasks array. Also, sets the task/item that was removed to the REMOVED variable (NOTE: Splice returns the value that is removed as an item(s) in an array)
+        // Removes the task/item selected by the user from the tasks array. Also, sets the task/item that was removed to the REMOVED variable (NOTE: Splice returns the value(s) that is removed as an item(s) in an array)
         removed = tasks.splice(num, 1);
 
         // Alerts user with the task/item that has been removed (NOTE: Using index on the REMOVED variable here because splice returns the value that is removed as an item in an array)
@@ -98,8 +99,13 @@ while (userInput !== `CLOSE`){
         // Sets the value of the showTasks string variable back to an empty string
         showTasks = ``;
     }
+
+
+
+
     // Displays the menu again
-    userInput = prompt(menu);
+    // Using the "toUpperCase" method to convert the user's response to UPPERCASE
+    userInput = prompt(menu).toUpperCase();
 }
 
 
